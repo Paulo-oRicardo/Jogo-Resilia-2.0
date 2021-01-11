@@ -1,0 +1,93 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+ button{
+   padding: 5px 40px;
+   border-radius: 8px;
+   color: white;
+   background-color: black;
+   font-size: 16px;
+   margin-top: 50px;
+}
+#gif{
+   margin-top: 2%;
+   width: 100%;
+   height: 100%;
+}
+#container{
+   background-image: url('../images/floresta.jpg');
+   background-size: cover;
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   align-items: center;
+     flex-direction: column;
+}
+#container #title{
+   height: 30%;
+  
+}
+i{
+   margin:0 5px;
+}
+#title{
+   padding: 2% 0;
+   font-size: 60px;
+   font-weight: bold;
+   background:  radial-gradient(circle, rgba(1,255,0,1) 16%, rgba(255,248,0,1) 37%);
+   -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+   text-align: center;
+}
+
+#container #box{
+  width: 60%;
+  padding: 45px;
+  margin-top: 11%;
+   background-color: rgba(0, 0, 0, 0.9);
+   border-radius: 15px;
+   text-align: center;
+   display: none;
+}
+#resultado{
+   padding: 5px 25px;
+   border: 3px solid brown;
+}
+#option0, #option1{
+   padding: 0 20px 0 5px;
+}
+#inputs{
+  padding-top:10px ;
+}
+#container p,label{
+   color: white;
+
+}
+#description{
+   font-size: 20px;
+}
+#poderzin{
+   font-size: 50px;
+   margin:5% 0 0 80%;
+}
+#botao{
+  padding-top: 10px;
+}
+#next{
+   color:black;
+   font-size: 18px;
+   background-color:#40ffed;
+   border: none;
+   margin-top: 10px;
+}
+#next:hover{
+   font-weight: bold;
+}
+@media screen and (max-width:340px){
+   #container #box{
+      margin-top: 16%;
+   
+   }
+
+}
