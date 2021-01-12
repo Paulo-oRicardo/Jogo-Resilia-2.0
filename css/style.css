@@ -44,7 +44,7 @@ i{
 #container #box{
   width: 60%;
   padding: 45px;
-  margin-top: 11%;
+  margin-top: 8%;
    background-color: rgba(0, 0, 0, 0.9);
    border-radius: 15px;
    text-align: center;
@@ -58,6 +58,7 @@ i{
    padding: 0 20px 0 5px;
 }
 #inputs{
+  
   padding-top:10px ;
 }
 #container p,label{
@@ -66,11 +67,27 @@ i{
 }
 #description{
    font-size: 20px;
+   text-align: center;
 }
-#poderzin{
+#fire{
+   color: red;
    font-size: 50px;
-   margin:5% 0 0 80%;
+   display: none;
 }
+#water{
+   color: blue;
+   font-size: 50px;
+   display: none;
+}
+#dragon{
+   color: white;
+   font-size: 50px;
+   display: none;
+}
+#iconPower{
+   margin:0 0 0 80%;
+}
+
 #botao{
   padding-top: 10px;
 }
@@ -83,6 +100,14 @@ i{
 }
 #next:hover{
    font-weight: bold;
+}
+@media screen and (max-width:700px){
+   #title{
+      font-size:40px;
+   }
+   #inputs{
+      width: 100%;
+   }
 }
 @media screen and (max-width:340px){
    #container #box{
