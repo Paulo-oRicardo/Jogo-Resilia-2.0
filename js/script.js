@@ -6,6 +6,8 @@
        first()
    })
       // Criar um function para isso
+
+
    //Escolher o poder do mago 
 
 function first(){
@@ -32,11 +34,12 @@ function power(){
       }
    }
    if(choice == '0'){
-      //Criar um icone, para ficar no canto da tela com o poder, ai pega pelo id do icone, Se fire power of fire
+        //Criar um icone, para ficar no canto da tela com o poder, ai pega pelo id do icone, Se fire power of fire
+   aparecer('fire', 'inline-block')
    second();
    }
-   if(choice == '1'){
-
+   else if(choice == '1'){
+   aparecer('water','inline-block')
    second();
    }
   remove("inputs")
@@ -44,7 +47,7 @@ console.log(remove("inputs"))
 
  })
 }
-
+ //---------------------------------------
 function second(){
    changeText("Em direção a montanha você se depera com um goblin, preste a te atacar, precisa reagir rápido e pensar no que fazer");
    createBloc("Correr", "Atacar","fas fa-running","fas fa-fist-raised");
@@ -68,6 +71,7 @@ function second(){
    })
 }
 
+//----------------------------------------------------
 
  function third(){
    trocaimage("url('../images/mapa.jpg')");
@@ -77,6 +81,7 @@ function second(){
       fouth();
    }
  }
+//------------------------------------------
 
  function fouth(){
      changeText("Você precisa decifrar o mapa, e para isso será necessário realizar um desafio matemático. \r Você já andou 2600m em 50 min. Em quanto tempo você andaria 6200m? ");
@@ -88,11 +93,11 @@ function second(){
       }
       else{
          //adicionar a opção de voltar
-         changeText("Tente Novamente !");
+
       }
     })
  }
-
+//----------------------------
  function golemUm(){
    trocaimage("url('../images/golem.jpg')");
    changeText("Com o mapa decifrado, você caminha até o Portão da lógica, protegido pelo golem chamado PROGRAMAÇÃO. Para passar por aqui será necessário responder um pergunta de lógica. Não erre, se não seu caminho acaba aqui");
@@ -102,7 +107,8 @@ function second(){
    })
   
 }
-    
+    //---------------------------------------------
+
  function golemDois(){
    trocaimage("url('../images/golem.jpg')");
    changeText("No caminho de casa até o mercado, uma senhora conta 10 árvores a sua direita. Após as compras, ela volta para casa e conta 10 árvores a sua esquerda. Quantas árvores ela viu no total nesse dia?  ");
@@ -117,6 +123,7 @@ function second(){
       }
       }
       if(choice == '0'){
+
          golemThree();
       }
       else{
@@ -125,14 +132,19 @@ function second(){
       remove('inputs')
    })
  }
+ //----------------------------------------
+
  function golemThree (){
     trocaimage("url('../images/golem.jpg')");
     changeText("Parabéns você passou no teste, é digno de passar pelos portões. Além da honra em passar, lhe darei mais um prêmio");
     let next = getElement('next');
+    
     next.addEventListener("click", function(){
        lutaMagoOne();
     })
  }
+ //---------------------------------------
+
  function lutaMagoOne(){
     trocaimage("url('../images/mago.jpg')");
     changeText("Passando o golem, você chega a entrada da montanha. Mas de repente chega outro mago para te desafiar. O tesouro pode ser apenas de um, derrote-o para pegar a sua recompensa");
@@ -150,26 +162,107 @@ function second(){
            lutaMago1D();
          }
          if(choice == '1'){
-            createGif("../animations/fireBall.gif")
-            changeText("Você tenta atacar com uma bola de fogo, mas o seu adversário é ágil e desvia.");
-            lutaMago1A();
+            changeText("Você tenta atacar com uma bola de fogo, mas o mago é implacável.");
+            lutaMago2D();
          }
          remove('inputs');
-         console.log(remove('inputs'))
-      })
+         console.log(remove('inputs'));
+    })
+   }
+ 
+ //-----------------------------------
+
+
+
+//--------------------------------------------
+
+ function lutaMago1D(){
+   changeText("O mago lança um feitiço de fogo, mas com rapidez, você desvia e o contra ataca");
+   trocaimage("url('../images/magoPrepare.jpg')")
+  let next = getElement("next");
+  next.addEventListener("click",function(){
+     lutaMago2D();
+   
+  })
  }
- function lutaMago1A(){
+ //------------------------------------------------
+
+ function lutaMago2D(){
+   trocaimage("url('../images/magoPrepare.jpg')")
+    changeText("Escolha a opção de contra-ataca");
+    createBigBloc("FireBall","Water Jet", "Knife", "Pedra");
+    let options = document.getElementsByName("choice");
+    let next = getElement('next');
+    next.addEventListener("click", function(){
+      for(let i = 0; i<options.length; i++){
+         if(options[i].checked){
+            choice = options[i].id;
+         }
+         }
+         if(choice == '0'){
+           lutaMago2DFireball();
+         }
+         if(choice == '1'){
+           lutaMago2DWaterJet();
+         }
+         if(choice == '2'){
+           lutaMago2DKnife();
+
+         }
+         if(choice == '3'){
+           lutaMago2DPedra()
+         }
+        remove('inputs')
+        console.log(remove('inputs'));
+      })
 
  }
- function lutaMago1D(){
-   createGif("../animations/fireBall.gif")
-   changeText("O mago lança um feitiço de fogo, mas com rapidez, você desvia e o contra ataca");
-   
- }
-function lutaMagoTwo(){
-   createGif("../animations/fireBall.gif")
-   changeText("Você lança a bola de fogo e o acerta")
+ //----------------------------------------------
+
+function lutaMago2DFireball(){
+ 
+   changeText("Você lança uma bola de fogo e o acerta em cheio");
+   next.addEventListener("click", function(){
+      win1();
+   })
 }
+
+function lutaMago2DWaterJet(){
+ 
+   changeText("Você lança uma bola de fogo e o acerta em cheio");
+   next.addEventListener("click", function(){
+      win1();
+   })
+}
+function lutaMago2DKnife(){
+  
+   changeText("Você lança uma Faca e o acerta em cheio no olho");
+   next.addEventListener("click", function(){
+      win1();
+   })
+}
+function lutaMago2DPedra(){
+ 
+   changeText("Você lança uma pedra e o acerta em cheio na garganta");
+   next.addEventListener("click", function(){
+      win1();
+   })
+}
+function win1(){
+   trocaimage("url('../images/toroFogo.gif')")
+   changeText("Para o golpe final você libera sua maior fonte de poder com uma chuva de estacas de gelo, seguidos de bolas de fogo ");
+   next.addEventListener("click",function(){
+      win2();
+   })
+}
+function win2(){
+   let dragon = getElement("dragon");
+   dragon.style.display="inline-block";
+   trocaimage("url('../images/tesouro.jpg')")
+    changeText("Parabéns Ó Ser majestoso, deleite-se do seu tesouro agora, riquezas e algo conhecimento");
+
+   }
+
  //Fazer a derrota 
  //morte do pelo golem
  //vitória 
